@@ -68,7 +68,7 @@ class _SignInState extends State<SignIn> {
                 onPressed: () async {
                   if (_fromKey.currentState!.validate()) {
                     try {
-                      await AuthApi().signUp(
+                      await AuthApi().logIn(
                           emailController.text, passwordController.text);
                       Navigator.of(context).pushReplacement(
                         MaterialPageRoute(builder: (context) => const Home()),

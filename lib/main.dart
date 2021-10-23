@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:hello_flutter/API/auth_api.dart';
+import 'package:hello_flutter/screens/sign_in.dart';
 
 import 'models/theme.dart';
 import 'screens/home.dart';
@@ -22,7 +23,7 @@ class Fooder extends StatelessWidget {
     return MaterialApp(
       theme: theme,
       title: 'Fooder',
-      home: auth.isLogged() ? const Home() : const SignUp(),
+      home: auth.isLogged() ? const Home() : const SignIn(),
     );
   }
 }

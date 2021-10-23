@@ -1,4 +1,6 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:hello_flutter/widgets/third_tab.dart';
 import 'explore_page.dart';
 import 'recipes_screen.dart';
 
@@ -15,9 +17,7 @@ class _HomeState extends State<Home> {
   List<Widget> tabs = [
     ExplorePage(),
     const RecipesScreen(),
-    Container(
-      color: Colors.red,
-    )
+    const ThirdTab(),
   ];
   @override
   Widget build(BuildContext context) {
@@ -42,6 +42,10 @@ class _HomeState extends State<Home> {
               icon: Icon(Icons.card_giftcard), label: 'card 3'),
         ],
       ),
+      floatingActionButton: FloatingActionButton(
+          onPressed: ()=> FirebaseFirestore.instance.collection('testing').add({'timestamp': Timestamp.fromDate(DateTime.now())}),
+          child: const Icon(Icons.add),
+          ),
     );
   }
 }
